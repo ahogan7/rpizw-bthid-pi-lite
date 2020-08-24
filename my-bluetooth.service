@@ -1,0 +1,13 @@
+[Unit]
+Desription=RPi Keyboard
+After=bluetooth.target
+After=multi-user.target
+
+[Service]
+Type=idle
+User=root
+ExecStart=/bin/sh -c 'cd /opt/rpi-bthid-pi-lite && sudo sh /opt/rpi-bthid-pi-lite/bluetooth_adv.sh && sudo python3 /opt/rpi-bthid-pi-lite/rfcomm-server.py'
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
