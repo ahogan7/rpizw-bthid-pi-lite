@@ -1,4 +1,3 @@
-
 #!/usr/bin/expect -f
 set address [lindex $argv 0];
 set prompt "#"
@@ -38,4 +37,3 @@ expect "Agent registered\r\n" {
     }
   }
 }
-
