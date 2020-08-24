@@ -1,5 +1,7 @@
 ## Raspberry Pi Bluetooth Keyboard From Phone (Currently Android only) Lite Encryption Version (AES)
 
+ * install raspberry pi lite (headless) on your Raspberry Pi Zero W (currently only supported rpi variant)
+
  * Using terminal simply login
  * Using SSH? Follow this guide for advice https://yunohost.org/#/security but use flag '-t ed25519' during ssh-keygen for security (if your system supports)
  * (ssh optional) change 'AllowUsers' ssh user to have a new user name and create longer passwords for all users or replace the default pi user
