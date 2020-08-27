@@ -21,8 +21,6 @@ sudo sed -i '/^exit\s0/i \/usr\/bin\/rpikeyboard' /etc/rc.local
 wget https://raw.githubusercontent.com/electrocuted-slug/rpizw-bthid-pi-lite/master/rpikeyboard
 cat rpikeyboard | sudo tee /usr/bin/rpikeyboard
 
-sudo hciconfig hci0 name 'rpi-bthid'
-
 while true; do
    echo "Please get your phone's mac address from your phone via settings > about phone > status > bluetooth address"
    read -p "Please enter you phone's mac address: " address
