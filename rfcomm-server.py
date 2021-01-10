@@ -15,6 +15,7 @@ from bluetooth import *
 from Crypto import Random
 from Crypto.Cipher import AES
 
+import time
 import string
 import random
 
@@ -167,6 +168,7 @@ def mpwd(mpwd):
                 write_report(FRE)
             else:
                 print("Unknown character!")
+            time.sleep(0.1)
         #write_report(REG + RET + DN)
         #write_report(FRE)
     except EOFError:
