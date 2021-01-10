@@ -168,7 +168,7 @@ def mpwd(mpwd):
                 write_report(FRE)
             else:
                 print("Unknown character!")
-            time.sleep(0.1)
+            time.sleep(0.01)
         #write_report(REG + RET + DN)
         #write_report(FRE)
     except EOFError:
