@@ -10,7 +10,7 @@
  * WARNING: avoid running the install script twice unless you know what you're doing. If the commands get stuck try manually adding each of the next lines of code until the task is completed.
 
 ```shell
-bash <(wget -qO- https://raw.githubusercontent.com/electrocuted-slug/rpizw-bthid-pi-lite/master/install.sh)
+bash <(wget -qO- https://raw.githubusercontent.com/a93h/rpizw-bthid-pi-lite/master/install.sh)
 ````
 
 ##### after the install completes please reboot
