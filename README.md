@@ -10,7 +10,10 @@
  * WARNING: avoid running the install script twice unless you know what you're doing. If the commands get stuck try manually adding each of the next lines of code until the task is completed.
 
 ```shell
-bash <(wget -qO- https://raw.githubusercontent.com/a93h/rpizw-bthid-pi-lite/master/install.sh)
+# install in 'screen' in case ssh connection breaks
+sudo apt update
+sudo apt install screen
+screen -dm -S rpizwBthidInstall bash <(wget -qO- https://raw.githubusercontent.com/a93h/rpizw-bthid-pi-lite/master/install.sh)
 ````
 
 ##### after the install completes please reboot
