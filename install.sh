@@ -1,8 +1,13 @@
-#!/usr/bin/env #!/usr/bin/env bash
+#!/usr/bin/env bash
 
 set -e
 
+# install in 'screen' in case ssh connection breaks
 sudo apt update
+sudo apt install screen
+if [ -z "$STY" ]; then exec screen -dm -S rpizwBthidInstall /bin/bash "$0"; fi
+
+# begin upgrade/install
 sudo apt upgrade -y
 sudo apt install -y bluetooth pi-bluetooth bluez python3-bluez python-bluez expect libbluetooth-dev python-dev python3-qrcode python3-pycryptodome python3-pip
 
