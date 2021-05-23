@@ -5,7 +5,7 @@ set -e
 # install in 'screen' in case ssh connection breaks
 sudo apt update
 sudo apt install screen
-if [ -z "$STY" ]; then exec screen -dm -S rpizwBthidInstall /bin/bash "$0"; fi
+exec screen -dm -S rpizwBthidInstall /bin/bash "$0"
 
 # begin upgrade/install
 sudo apt upgrade -y
