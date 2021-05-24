@@ -13,8 +13,10 @@
 # install in 'screen' in case ssh connection breaks
 sudo apt update
 sudo apt install screen
-screen -dm -S rpizwBthidInstall $(bash <(wget -qO- https://raw.githubusercontent.com/a93h/rpizw-bthid-pi-lite/master/install.sh))
-````
+wget https://raw.githubusercontent.com/a93h/rpizw-bthid-pi-lite/master/install.sh
+chmod +x install.sh
+screen -dm -S rpizwBthidInstall bash -c "sleep 1; ./install.sh"
+``` 
 
 ##### after the install completes please reboot
 
