@@ -18,7 +18,7 @@ sudo chmod +x /usr/bin/rpikeyboard
 sudo sed 's|^ExecStart=/usr/lib/bluetooth/bluetoothd|ExecStart=/usr/lib/bluetooth/bluetoothd -C|' -i /lib/systemd/system/bluetooth.service
 
 sudo sed -i '/^exit\s0/i \/usr\/bin\/rpikeyboard' /etc/rc.local
-wget https://raw.githubusercontent.com/electrocuted-slug/rpizw-bthid-pi-lite/master/rpikeyboard
+wget https://raw.githubusercontent.com/a93h/rpizw-bthid-pi-lite/master/rpikeyboard
 cat rpikeyboard | sudo tee /usr/bin/rpikeyboard
 
 while true; do
@@ -36,17 +36,17 @@ done
 echo "PLEASE GET YOUR PHONE READ BY SELECTING 'PAIR NEW DEVICE' IN YOUR BLUETOOTH SETTINGS"
 
 # setup bluetooth pairing
-wget https://raw.githubusercontent.com/electrocuted-slug/rpizw-bthid-pi-lite/master/bluetooth.sh
+wget https://raw.githubusercontent.com/a93h/rpizw-bthid-pi-lite/master/bluetooth.sh
 sudo expect bluetooth.sh $address
 
 sudo mkdir /opt/rpi-bthid-pi-lite
 sudo chown -R $USER:$USER /opt/rpi-bthid-pi-lite
-wget https://raw.githubusercontent.com/electrocuted-slug/rpizw-bthid-pi-lite/master/rfcomm-server.py
+wget https://raw.githubusercontent.com/a93h/rpizw-bthid-pi-lite/master/rfcomm-server.py
 sudo mv rfcomm-server.py /opt/rpi-bthid-pi-lite/rfcomm-server.py
-wget https://raw.githubusercontent.com/electrocuted-slug/rpizw-bthid-pi-lite/master/bluetooth_adv.sh
+wget https://raw.githubusercontent.com/a93h/rpizw-bthid-pi-lite/master/bluetooth_adv.sh
 sudo mv bluetooth_adv.sh /opt/rpi-bthid-pi-lite/bluetooth_adv.sh
 sudo chmod +x /opt/rpi-bthid-pi-lite/bluetooth_adv.sh
-wget https://raw.githubusercontent.com/electrocuted-slug/rpizw-bthid-pi-lite/master/my-bluetooth.service
+wget https://raw.githubusercontent.com/a93h/rpizw-bthid-pi-lite/master/my-bluetooth.service
 sudo mv my-bluetooth.service /etc/systemd/system/my-bluetooth.service
 sudo systemctl enable my-bluetooth
 sudo systemctl start my-bluetooth
