@@ -12,8 +12,7 @@ import base64
 import hashlib
 
 from bluetooth import *
-from Crypto import Random
-from Crypto.Cipher import AES
+from AesEverywhere import aes256
 
 import time
 import string
@@ -49,29 +48,12 @@ def password_generator(length=64):
 
 
 class AESCipher:
-    bs = AES.block_size
 
     def __init__(self, key):
-        self.key = hashlib.sha256(key.encode()).digest()
-
-    def encrypt(self, message):
-        message = self._pad(message)
-        iv = Random.new().read(AES.block_size)
-        cipher = AES.new(self.key, AES.MODE_CBC, iv)
-        return base64.b64encode(iv + cipher.encrypt(message)).decode('utf-8')
+        self.key = key
 
     def decrypt(self, enc):
-        enc = base64.b64decode(enc)
-        iv = enc[:AES.block_size]
-        cipher = AES.new(self.key, AES.MODE_CBC, iv)
-        return self._unpad(cipher.decrypt(enc[AES.block_size:])).decode('utf-8')
-
-    def _pad(self, s):
-        return s + (self.bs - len(s) % self.bs) * chr(self.bs - len(s) % self.bs)
-
-    @staticmethod
-    def _unpad(s):
-        return s[:-ord(s[len(s) - 1:])]
+        return aes256.decrypt(enc, self.key).decode('UTF-8')
 
 # characters
 
@@ -238,7 +220,7 @@ if __name__ == '__main__':
             ciph_str=data.decode("utf-8")
             print("ciph: " + ciph_str)
             pt_str=aes_cipher.decrypt(ciph_str)
-            print("pt: " + pt_str)
+            # print("pt: " + pt_str)
             mpwd(pt_str)
     except IOError:
         pass
