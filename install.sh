@@ -5,6 +5,7 @@ set -e
 # begin upgrade/install
 sudo apt upgrade -y
 sudo apt install -y bluetooth pi-bluetooth bluez python3-bluez python-bluez expect libbluetooth-dev python-dev python3-qrcode python3-pycryptodome python3-pip
+sudo pip3 install pycryptodome
 
 # enable modules/drivers
 echo "dtoverlay=dwc2" | sudo tee -a /boot/config.txt
