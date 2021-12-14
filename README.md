@@ -18,6 +18,8 @@ chmod +x install.sh
 screen -dm -S rpizwBthidInstall bash -c "sleep 1; ./install.sh"
 ``` 
 
+##### [How to use screen](https://linuxize.com/post/how-to-use-linux-screen/)
+
 ##### after the install completes please reboot
 
 #### notice if you don't use the correct USB micro to USB cable and plug into the USB port to power and transmit keyboard keys the device may not work properly.
